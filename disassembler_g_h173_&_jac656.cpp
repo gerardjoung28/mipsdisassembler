@@ -88,18 +88,17 @@ void disassembleInstr(uint32_t pc, uint32_t instr) {
 int main(){
    int count = 0;
    ifstream inFile;
-   uint8_t bytes[4];
-   int32_t test1;
    string unused;
    string line;
+   string filePath;
    uint32_t *instructions;
-   unsigned long long int binary ;
+   int64_t binary ;
    unsigned long long int start;
 
-   cout << "CS 3339 MIPS Disassembler" << endl << endl;
-
-  // open the binary file;
-   inFile.open("test12");
+   // open the binary file;
+   cout << "Please enter the file Path:" << endl;
+   cin >> filePath;
+   inFile.open(filePath);
 
    if(!inFile) {
      cerr << "error: could not open executable file " << endl;
@@ -115,6 +114,9 @@ int main(){
    inFile.clear();
    inFile.seekg(0, ios::beg);
 
+   //header
+    cout << "CS 3339 MIPS Disassembler" << endl << endl;
+
    // save first line in file corresponding to the starting memory
      inFile >> unused;
 
@@ -127,10 +129,11 @@ int main(){
      cerr << "error: out of memory" << endl;
      return -1;}
 
-   inFile >> unused ;
+
+    inFile >> unused ;
 
    // read if 32 bit instruction convert it to int and save it in instructions;
-   for(int i = 0; i < count; i++) {
+   for(int i = 0; i < count ; i++) {
      binary = stoi(unused, nullptr, 2);
      instructions[i] = binary;
      inFile >> unused ;
