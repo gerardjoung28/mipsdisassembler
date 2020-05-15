@@ -92,10 +92,10 @@ int main(){
    string line;
    string filePath;
    uint32_t *instructions;
-   int64_t binary ;
+   uint32_t  binary ;
    unsigned long long int start;
 
-   // open the binary file;
+    // open the binary file;
    cout << "Please enter the file Path:" << endl;
    cin >> filePath;
    inFile.open(filePath);
@@ -130,13 +130,15 @@ int main(){
      return -1;}
 
 
-    inFile >> unused ;
+    inFile >> unused;
+
 
    // read if 32 bit instruction convert it to int and save it in instructions;
-   for(int i = 0; i < count ; i++) {
-     binary = stoi(unused, nullptr, 2);
-     instructions[i] = binary;
+   for(int i = 0; i < 67 ; i++) {
+     binary = stoi(unused, nullptr, 2 );
+     instructions[i] = binary ;
      inFile >> unused ;
+
    }
 
  // disassemble each instruction
