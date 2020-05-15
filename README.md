@@ -7,3 +7,7 @@ To run this program, it is necessary to add the command -std=c++11 in compiler c
 
 ## Updated version
 disassembler.cpp file is an updated version which fixed older version out-of-range errors
+
+## Mars.jar
+This is a mips simulators which generates the binary files that we used for the disassembler.
+The asemmbly files  .asm can be opened and run using this simulator 
